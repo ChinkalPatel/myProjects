@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication7.Models.Food>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Welcome to Food Hub</h2>
+
+@if (User.Identity.GetUserName() == "abc@gmail1.com")
+{
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Food Name")
+        </th>
+        <th>
+            @Html.DisplayName("Food Price")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+       
+
+        @if (Request.IsAuthenticated)
+        {
+            if (User.Identity.GetUserName() == "abc@gmail1.com")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.fid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.fid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.fid }) |
+                </td>
+            }
+            else
+            {
+                <td>
+                    <form action="/Carts/Add/" method="post">
+                        <input type="hidden" name="fid" value=@item.fid>
+                        <input type="submit" value="Add to Cart"  />
+                    </form>
+
+                </td>
+            }
+        }
+        else
+        {
+            <td>
+                <form action="/Carts/Add/" method="post">
+                    <input type="hidden" name="fid" value=@item.fid>
+                    <input type="submit"  value="Add to Cart" />
+                </form>
+
+            </td>
+        }
+
+
+
+    </tr>
+}
+   
+</table>
+@Html.Raw(TempData["msg"])

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebApplication7.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Your Orders</h2>
+
+@if (Model.Count() == 0)
+{
+    <h3>You haven't place any order.</h3>
+}
+else
+{
+<table class="table">
+    <tr>
+       
+        
+        <th>
+            @Html.DisplayName("Item name")
+        </th>
+        <th>
+            @Html.DisplayName("Item Qty")
+        </th>
+        <th>
+            @Html.DisplayName("Item Price")
+        </th>
+        <th>
+            @Html.DisplayName("Total Price")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Delivery Status")
+        </th>
+        <th>
+            @Html.DisplayName("Address")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        
+        
+        <td>
+         @foreach (var x in item.odetails)
+         {
+             <div>@x.foods.fname</div>
+         }
+
+        </td>
+        <td>
+            @foreach (var x in item.odetails)
+            {
+                <div>@x.qty</div>
+            }
+
+        </td>
+        <td>
+            @foreach (var x in item.odetails)
+            {
+                <div>@x.foods.price</div>
+            }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tprice)
+        </td>
+        @if (item.dtime > DateTime.Now)
+        {
+            <td>
+                
+                expected delivery at @item.dtime
+            </td>
+        }
+        else
+        {
+               <td>
+                    deliverd at @item.dtime
+               </td>
+        }
+        <td>
+            Name:-@item.add.name <br />Mobile No.:- @item.add.mobileno <br />
+            @item.add.address_line1 , @item.add.address_line2<br />
+            @item.add.city, @item.add.state - @item.add.pincode .
+        </td>
+
+        <td>
+          @if (item.dtime > DateTime.Now)
+          {
+            <form action="/Orders/Delete" method="post">
+                <input type="hidden" name="oid" value="@item.oid"/>
+                <button type="submit">Cancle Order</button>
+            </form>
+                <br />
+                <form action="/Orders/Edit" >
+                    <input type="hidden" name="oid" value="@item.oid" />
+                    <button type="submit">Change Address</button>
+                </form>
+          }
+          else
+          {
+
+          }
+        </td>
+    </tr>
+}
+
+</table>
+}

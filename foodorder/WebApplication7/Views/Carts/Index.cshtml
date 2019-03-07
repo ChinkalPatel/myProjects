@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WebApplication7.Models.Cart>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2 style="text-align:center">Your Cart</h2>
+@if(Model.Count()==0){
+    <h3>You don't have any item in your cart.</h3>
+    <h4>Please go to home and add foods to your cart.</h4>
+}
+else
+{
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Food Name")
+        </th>
+        <th>
+            @Html.DisplayName("Food Price")
+        </th>
+        <th>
+            @Html.DisplayName("Food Qty")
+        </th>
+        <th></th>
+    </tr>
+    @{ 
+        int total = 0;
+    }
+@foreach (var item in Model) {
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.foods.fname)
+        </td>
+        <td>
+           @{ 
+               item.foods.price = item.qty * item.foods.price;
+               total += item.foods.price;
+           }
+            @Html.DisplayFor(modelItem => item.foods.price)
+        </td>
+        <td id="q">
+            @if (item.qty <= 1)
+            {
+                <button disabled>-</button>
+            }
+            else
+            {
+                <form action="/Carts/editqm/" method="post" style="display:inline-block">
+                    <input type="hidden" value="@item.CartId" name="cid" />
+                    <button id="qm" type="submit" value="qm">-</button>
+                </form>
+            }
+           
+
+                <span id="qty" style="display:inline-block"> @item.qty </span>
+
+            @if (item.qty >= 10)
+            {
+                <button disabled>+</button>
+            }
+            else
+            {
+                <form action="/Carts/editqp/" method="post" style="display:inline-block">
+                    <input type="hidden" value="@item.CartId" name="cid" />
+                    <button id="qp" type="submit" value="qp">+</button>
+                </form>
+            }
+            
+
+        </td>
+        <td>
+           
+            <form action="/Carts/Remove/" method="post">
+                <input type="hidden" value="@item.CartId" name="cid" />
+                <button type="submit" >Remove</button>
+            </form>
+        </td>
+    </tr>
+               }
+   
+</table>
+<h3> Total Amount to Paid : @total</h3>
+<form action="/Orders/Create">
+<button type="submit">Proceed to Check out</button>  
+    </form>
+} 

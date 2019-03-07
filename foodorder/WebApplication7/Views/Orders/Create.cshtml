@@ -1,0 +1,153 @@
+﻿@model WebApplication7.Models.Order
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Enter Your Address</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.add.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.mobileno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.mobileno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.add.mobileno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.pincode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.pincode, new { htmlAttributes = new { @class = "form-control",@id = "pin", @onkeyup="pincode()"} })
+                @Html.ValidationMessageFor(model => model.add.pincode, "", new { @class = "text-danger" })
+                <span id="er" style="display:none">Please Enter valid pin code</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.city, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.city, new { htmlAttributes = new { @class = "form-control",@id="city" } })
+                @Html.ValidationMessageFor(model => model.add.city, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.state, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.state, new { htmlAttributes = new { @class = "form-control",@id="state", } })
+                @Html.ValidationMessageFor(model => model.add.state, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.address_line1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.address_line1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.add.address_line1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.add.address_line2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.add.address_line2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.add.address_line2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Place Order" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyD4w3XraVztJ4KgXx7l5lezgJRPn0V6KnA"></script>
+
+<script>
+    function pincode() {
+        document.getElementById("city").value = '';
+        document.getElementById("state").value = '';
+        //console.log("hii")
+        var zip = document.getElementById("pin").value;
+        if (zip.length != 6)
+            return
+        console.log(zip);
+        var lat;
+        var lng;
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': zip }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                geocoder.geocode({ 'latLng': results[0].geometry.location }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        console.log(results)
+                        if (results[1]) {
+                            //console.log(results)
+                            var loc = getCityState(results);
+                            console.log(loc);
+                        }
+                    }
+                });
+            }
+        });
+
+        
+        
+    }
+    function getCityState(results) {
+        var a = results[0].address_components;
+        //console.log(a)
+        var city, state;
+        for (i = 0; i < a.length; ++i) {
+            var t = a[i].types;
+            if (compIsType(t, 'administrative_area_level_1'))
+                state = a[i].long_name; //store the state
+                
+            else if (compIsType(t, 'locality'))
+                city = a[i].long_name; //store the city
+        }
+        if (city == null && state==null)
+        {
+            console.log("e")
+            document.getElementById("er").style.display = "block";
+        }
+       // document.getElementById("city").focused = true;
+        document.getElementById("city").value = city;
+       // document.getElementById("state").focused = true;
+
+        document.getElementById("state").value = state;
+        return (city + ', ' + state)
+    }
+
+    function compIsType(t, s) {
+        for (z = 0; z < t.length; ++z)
+            if (t[z] == s)
+                return true;
+        return false;
+    }
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
