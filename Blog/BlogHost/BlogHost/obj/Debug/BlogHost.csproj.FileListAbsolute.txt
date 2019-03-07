@@ -1,0 +1,14 @@
+E:\soc project\BlogHost\BlogHost\bin\Debug\BlogHost.exe.config
+E:\soc project\BlogHost\BlogHost\bin\Debug\BlogHost.exe
+E:\soc project\BlogHost\BlogHost\bin\Debug\BlogHost.pdb
+E:\soc project\BlogHost\BlogHost\bin\Debug\blogservicelibrary.dll
+E:\soc project\BlogHost\BlogHost\bin\Debug\blogservicelibrary.pdb
+E:\soc project\BlogHost\BlogHost\bin\Debug\blogservicelibrary.dll.config
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.csprojAssemblyReference.cache
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.Form1.resources
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.Properties.Resources.resources
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.csproj.GenerateResource.cache
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.csproj.CoreCompileInputs.cache
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.csproj.CopyComplete
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.exe
+E:\soc project\BlogHost\BlogHost\obj\Debug\BlogHost.pdb

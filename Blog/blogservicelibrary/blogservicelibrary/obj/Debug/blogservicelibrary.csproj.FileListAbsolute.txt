@@ -1,0 +1,7 @@
+E:\soc project\blogservicelibrary\blogservicelibrary\bin\Debug\blogservicelibrary.dll.config
+E:\soc project\blogservicelibrary\blogservicelibrary\bin\Debug\blogservicelibrary.dll
+E:\soc project\blogservicelibrary\blogservicelibrary\bin\Debug\blogservicelibrary.pdb
+E:\soc project\blogservicelibrary\blogservicelibrary\obj\Debug\blogservicelibrary.csprojAssemblyReference.cache
+E:\soc project\blogservicelibrary\blogservicelibrary\obj\Debug\blogservicelibrary.csproj.CoreCompileInputs.cache
+E:\soc project\blogservicelibrary\blogservicelibrary\obj\Debug\blogservicelibrary.dll
+E:\soc project\blogservicelibrary\blogservicelibrary\obj\Debug\blogservicelibrary.pdb
