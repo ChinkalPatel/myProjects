@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+	{% load static %}
+	
+	{% block content %}
+		{% if form.errors %}
+			<p class="error"> Invalid Student info </p>
+		{% endif %}
+	<!-- Title Page -->
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static 'images/About.jpg' %});">
+	</section>
+
+
+	<!-- Our Story -->
+	<section class="bg2-pattern p-t-116 p-b-110 t-center p-l-15 p-r-15">
+		<span class="tit2 t-center">
+			Royal Care
+		</span>
+
+		<h3 class="tit3 t-center m-b-35 m-t-5">
+			Welcome
+		</h3>
+
+		<p class="t-center size32 m-l-r-auto">
+			The online hostel management system is web based software to provide college students accommodation to the university hostel more efficiently. This project also keeps details of the hostellers and applied students. It is headed by Warden. He will be the administrator. For accommodate a large number of students into hostel.
+		</p>
+	</section>
+
+	<!--Feasility-->
+	<section class="bg1-pattern p-t-120 p-b-105">
+		<div class="container">
+			<!-- 1 -->
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-delicious t-center">
+						<span class="tit2 t-center">
+							Feasility of
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							WIFI
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							Students have a wifi zone available in hostel.they use wifi anytime in the hostel.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="{% static 'images/intro-01.png' %}" alt="IMG-OUR">
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 2 -->
+			<div class="row p-t-170">
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="{% static 'images/intro-02.jpg' %}" alt="IMG-OUR">
+					</div>
+				</div>
+
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-romantic t-center">
+						<span class="tit2 t-center">
+							Feasility of
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Mess Hall
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							In hostel their is Huge Mess hall for all student.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 3 -->
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-delicious t-center">
+						<span class="tit2 t-center">
+							Feasility of
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Garden Area
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							In hostel their is Garden Area available.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="{% static 'images/intro-04.jfif' %}" alt="IMG-OUR">
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 4 -->
+			<div class="row p-t-170">
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="{% static 'images/minral.jpeg' %}" alt="IMG-OUR">
+					</div>
+				</div>
+
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-romantic t-center">
+						<span class="tit2 t-center">
+							Feasility of
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Mineral water
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							Mineral water provided to all the rooms.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--5-->
+		<div class="row p-t-170">
+				
+
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-romantic t-center">
+						<span class="tit2 t-center">
+							Feasility of
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-5">
+							Common TV Room
+						</h3>
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							TO Show tv we have common tv room in hostel.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+						<img src="{% static 'images/tvroom.jpg' %}" alt="IMG-OUR">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<!-- Banner -->
+	<div class="parallax0 parallax100" style="background-image: url({% static 'images/banner.jpg' %});">
+		<div class="overlay0-parallax t-center size33"></div>
+	</div>
+
+
+	<!-- Chef -->
+	<section class="section-chef bgwhite p-t-115 p-b-95">
+		<div class="container t-center">
+			<span class="tit2 t-center">
+				Meet Hostel
+			</span>
+
+			<h3 class="tit5 t-center m-b-50 m-t-5">
+				Owners
+			</h3>
+
+			<div class="row">
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="{% static 'images/avatar-01.jpg' %}" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Mitul Parmar
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Owner
+							</span>
+
+							<p class="t-center">
+								Owners of Royal Care Hostel.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="{% static 'images/avatar-01.jpg' %}" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Chinkal Patel
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Owner
+							</span>
+
+							<p class="t-center">
+								Owners of Royal Care Hostel.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">
+					<!-- -Block5 -->
+					<div class="blo5 pos-relative p-t-60">
+						<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">
+							<a href="#"><img src="{% static 'images/avatar-01.jpg' %}" alt="IGM-AVATAR"></a>
+						</div>
+
+						<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">
+							<a href="#" class="txt34 dis-block p-b-6">
+								Maharshi patel
+							</a>
+
+							<span class="dis-block t-center txt35 p-b-25">
+								Owner
+							</span>
+
+							<p class="t-center">
+								Owners of Royal Care Hostel.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- Footer -->
+	<footer class="bg1">
+		<div class="container p-t-40 p-b-70">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 p-t-50">
+					<!-- - -->
+					<h4 class="txt13 m-b-33">
+						Contact Us
+					</h4>
+
+					<ul class="m-b-70">
+						<li class="txt14 m-b-14">
+							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							Near DDIT University, College Road, Nadiad - 387001. 
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							+91 1234567891
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
+							 info@royalcarehostel.com
+						</li>
+					</ul>
+				</div>
+
+				
+
+				</div>
+			</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+
+
+
+	{% endblock %}

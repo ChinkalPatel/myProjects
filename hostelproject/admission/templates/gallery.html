@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+	{% load static %}
+	
+	{% block content %}
+		{% if form.errors %}
+			<p class="error"> Invalid Student info </p>
+		{% endif %}
+	<div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url({% static 'images/bg-intro-01.jpg' %});">
+			<span class="tit2 p-l-15 p-r-15">
+				Royel Care Hostel
+			</span>
+
+			<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3" style="color:blue;">
+				Gallery
+			</h3>
+		</div>
+		<br>
+		<br>
+		<!-- - -->
+		<div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
+			<!-- - -->
+			
+			<!-- Gallery -->
+			<div class="wrap-gallery-sidebar flex-w">
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-01.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-01.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-02.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-02.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-03.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-03.jpg' %}" alt="GALLERY" style="height:300px;" >
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-0.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-0.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-05.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-05.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-06.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-06.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-07.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-07.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-09.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-09.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-10.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-10.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-11.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-11.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-12.jpg" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-12.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-13.jfif' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-13.jfif' %}" alt="GALLERY" style="height:300px;">
+				</a>
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-14.png' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-14.png' %}" alt="GALLERY" style="height:300px;">
+				</a>
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-15.png' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-15.png' %}" alt="GALLERY" style="height:300px;">
+				</a>
+				<a class="item-gallery-sidebar wrap-pic-w" href="{% static 'images/photo-gallery-16.jpg' %}" data-lightbox="gallery-footer">
+					<img src="{% static 'images/photo-gallery-16.jpg' %}" alt="GALLERY" style="height:300px;">
+				</a>
+			</div>
+		</div>
+
+
+	
+<!-- Footer -->
+	<footer class="bg1">
+		<div class="container p-t-40 p-b-70">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 p-t-50">
+					<!-- - -->
+					<h4 class="txt13 m-b-33">
+						Contact Us
+					</h4>
+
+					<ul class="m-b-70">
+						<li class="txt14 m-b-14">
+							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							Near DD University, College Road, Nadiad - 387001. 
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							+91 1234567891
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
+							 info@royalcarehostel.com
+						</li>
+					</ul>
+				</div>
+
+				
+
+				</div>
+			</div>
+		</div>
+
+<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+	{% endblock %}

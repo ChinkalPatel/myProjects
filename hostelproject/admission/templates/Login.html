@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+	{% load static %}
+	
+	{% block content %}
+		{% if form.errors %}
+			<p class="error"> Invalid Student info </p>
+		{% endif %}
+	<!-- Header -->
+	
+
+	<!-- Title Page -->
+	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" style="background-image: url({% static 'images/Login.jpg' %})">
+	</section>
+
+
+	<!-- Reservation -->
+	<section class="section-reservation bg1-pattern p-t-100 p-b-113">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 p-b-30">
+					<div class="t-center">
+						<span class="tit2 t-center">
+							Login
+						</span>
+
+						<h3 class="tit3 t-center m-b-35 m-t-2" style="text-decoration:underline;">
+							Enter Details
+						</h3>
+					</div>
+					<div class=" btn3 flex-c-m size24 txt11 trans-0-4  size12 bo3 bo-rad-10 m-t-3 m-b-23" style="margin-left:auto;margin-right:auto;">
+						<select class="bo-rad-10 sizefull txt10 p-l-20" id="ln">
+								<option hidden selected>Select an option to login </option>
+								<option>Admin</option>
+								<option>Student</option>
+								<option>Employee</option>
+						</select>
+					</div>
+			<!--Admin Start-->
+			<div id="Admin" class="col-md-12">
+				<form class="wrap-form-reservation size22 m-l-r-auto" action="/admission/auth/?cat=admin" method="post">
+					{% csrf_token %}
+							<div class="row">
+										<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3" style="color:blue;margin-left:auto;margin-right:auto;">
+											Admin
+										</h3>
+										<div class="col-md-12">
+											<!-- Email -->
+											<span class="txt9">
+													Admin_Email_id
+											</span>
+	
+											<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+												<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="username" placeholder="Email id">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<!-- Email -->
+											<span class="txt9">
+												Password
+											</span>
+	
+											<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+												<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password">
+											</div>
+										</div>
+										<div class="wrap-btn-booking flex-c-m m-t-6" style="margin-left:auto;margin-right:auto;">
+												<!-- Button3 -->
+												<button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4">
+													Login
+												</button>
+										</div>
+							</div>
+						</form>
+			</div><!--admin ends-->
+			<!--Emp;oyee Start-->
+			<div id="Employee" class="col-md-12">
+				<form class="wrap-form-reservation size22 m-l-r-auto" action="/admission/auth/?cat=employee" method="post">
+					{% csrf_token %}
+					<div class="row">
+								<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3" style="color:blue;;margin-left:auto;margin-right:auto;">
+									Employee
+								</h3>
+								<div class="col-md-12">
+									<!-- Email -->
+									<span class="txt9">
+											Employee_id
+									</span>
+
+									<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+										<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="username" placeholder="Employee_id">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<!-- Email -->
+									<span class="txt9">
+										Password
+									</span>
+
+									<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+										<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password">
+									</div>
+								</div>
+								<div class="wrap-btn-booking flex-c-m m-t-6" style="margin-left:auto;margin-right:auto;">
+										<!-- Button3 -->
+										<button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4">
+											Login
+										</button>
+								</div>
+					</div>
+				</form>
+				</div><!--Employee ends-->
+			<!--Student start-->
+			<div id="Student" class="col-md-12">
+					<form class="wrap-form-reservation size22 m-l-r-auto" action="/admission/auth/?cat=student" method="post">
+						{% csrf_token %}
+					<div class="row">
+							<h3 class="tit4 t-center p-l-15 p-r-15 p-t-3" style="color:blue;;margin-left:auto;margin-right:auto;">
+									Student
+								</h3>
+							<div class="col-md-12">
+								<!-- Email -->
+								<span class="txt9">
+									Student_userId
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="username" placeholder="Email id">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<!-- Email -->
+								<span class="txt9">
+									Password
+								</span>
+
+								<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+									<input class="bo-rad-10 sizefull txt10 p-l-20" type="password" name="password" placeholder="Password">
+								</div>
+							</div>
+						<div class="wrap-btn-booking flex-c-m m-t-6" style="margin-left:auto;margin-right:auto;">
+							<!-- Button3 -->
+							<button type="submit" class="btn3 flex-c-m size13 txt11 trans-0-4">
+								Login
+							</button>
+						</div>
+					</form>
+			</div><!--Student ends-->
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<footer class="bg1">
+		<div class="container p-t-40 p-b-70">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 p-t-50">
+					<!-- - -->
+					<h4 class="txt13 m-b-33">
+						Contact Us
+					</h4>
+
+					<ul class="m-b-70">
+						<li class="txt14 m-b-14">
+							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							Near DDIT University, College Road, Nadiad - 387001.
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+							+91 1234567891
+						</li>
+
+						<li class="txt14 m-b-14">
+							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
+							 info@royalcarehostel.com
+						</li>
+					</ul>
+				</div>
+
+
+
+				</div>
+			</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+
+
+	{% endblock %}

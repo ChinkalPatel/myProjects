@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Student Desk</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon1.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/themify/themify-icons.css' %}"/>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}"/>
+
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/lightbox2/css/lightbox.min.css' %}"/>
+
+
+   <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+
+ <style type="text/css">
+	.error {
+  color: red;
+  align-self: right;
+}
+</style>
+</head>
+<body class="animsition">
+
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="wrap-menu-header gradient1 trans-0-4">
+			<div class="container h-full">
+				<div class="wrap_header trans-0-3">
+					<!-- Logo -->
+
+
+					<!-- Menu -->
+					<div class="wrap_menu p-l-45 p-2-0-xl" style="width:3000px;">
+						<nav class="menu">
+							<ul class="main_menu">
+								<li>
+									<a href="/student/profile">MyProfile</a>
+								</li>
+
+								
+
+								
+
+								<li>
+									<a href="/student/complain">ComplainDesk</a>
+								</li>
+
+								<li>
+									<a href="/student/mess">MessDetail</a>
+								</li>
+								<li>
+									<a href="/student/canteen">Canteen</a>
+								</li>
+								<li>
+									<a href="/student/gatepass/">Gatepass</a>
+								</li>
+								<li>
+									<a href="/student/electricity/">electricity</a>
+								</li>
+								<li>
+									<a href="/student/changepassword/">ChangePassword</a>
+								</li>
+								<li>
+									<a style="font-size:20px;color:navy;text-decoration: underline;">Welcome&nbsp;{{ request.session.unm }}</a>
+								</li>
+								<li>
+									<a href="/student/logout/"style="font-size:20px;color:red;">logout</a>
+								</li>
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    {% block content %}
+    {% endblock %}
+	<script>
+		function loadDoc() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(Response.state=='yes')
+				{
+					alert("successfully change password")
+				}
+				else
+				{
+					alert("not successfully change password")
+				}
+			
+			}
+		};
+		xhttp.open("GET", "ajax_info.txt", true);
+		xhttp.send();
+		}
+	</script>
+    <script type="text/javascript" src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!--==============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+    <!--===============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <!--===============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+    <!--===============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/slick/slick.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/slick-custom.js' %}"></script>
+    <!--===============================================================================================-->
+        <script type="text/javascript" src="{% static 'vendor/parallax100/parallax100.js' %}"></script>
+        <script type="text/javascript">
+            $('.parallax100').parallax100();
+        </script>
+    <!--===============================================================================================-->
+ 	<script type="text/javascript" src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+     <!--===============================================================================================-->
+         <script type="text/javascript" src="{% static 'vendor/lightbox2/js/lightbox.min.js' %}"></script>
+     <!--===============================================================================================-->
+         <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+{% block content %}
+	{% if form.errors %}
+		<p class="error"> Invalid Student info </p>
+  {% endif %}
+  
+          <div class="col-lg-14 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title" ><h1 style="margin-left: 300px;color: lightcoral;text-decoration: underline;margin-bottom: 50px;">Employee Details</h1></h4>
+                  <div class="template-demo">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+                      Add Employee
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Employee_id</th>
+                          <th>Name</th>
+                      
+                          <th>Date Of Birth</th>
+                          <th>gender</th>
+                          <th>Employee Type</th>
+                          <th>Salary</th>
+                          <th>Contact No</th>
+                          <th>Aadhar_no</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in p%}
+                        <tr>
+                          <td>{{i.employeeid}}</td>
+                          <td>{{i.employee_name}}</td>
+                          <td>{{i.dob}}</td>
+                          <td>{{i.gender}}</td>
+                          <td>{{i.job_assigned}}</td>
+                          <td>{{i.salary}}</td>
+                          <td>{{i.contact_no}}</td>
+                          <td>{{i.aadhar_no}}</td>
+                          <td>
+                              <div class="template-demo">
+                                  <button type="button" class="btn btn-outline-primary btn-rounded btn-fw" data-toggle="modal" data-target="#basicExampleModal1">Edit</button>
+                                  <a href="/administrator/employee1remove/?q={{i.employeeid}}" class="btn btn-outline-primary btn-rounded btn-fw">Remove item</a>&nbsp;
+                              </div>
+                          </td>
+                        </tr>
+                       {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+ <!-- Modal 1 -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add Employee Details</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="forms-sample" action="/administrator/employee1add/" method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="exampleInputName1">FName</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="FirstName">
+          </div>
+            <div class="form-group">
+              <label for="exampleInputName1">Date of Birth</label>
+              <input type="date" class="form-control" id="exampleInputName3" name="dob" placeholder="date of Birth">
+            </div>
+            <div class="col-md-14">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Gender</label>
+                <div class="col-sm-12">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="gender" id="membershipRadios1" value="" checked>Male
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="gender" id="membershipRadios2" value="option2"> Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class="form-group">
+          <label for="exampleInputEmail3">Employee Type</label>
+          <select class="form-control" name="job_assigned">
+            <option hidden selected></option>
+            <option>Receptness</option>
+            <option>canteen Employee</option>
+            <option>Mess Employee</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Registration date</label>
+          <input type="date" class="form-control" id="exampleInputName3" name="join_date" placeholder="Registration date">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword4">Salary</label>
+            <input type="number" class="form-control" id="exampleInputPassword4" name="salary" placeholder="Salary">
+          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword4">Contact No:</label>
+          <input type="number" class="form-control" id="exampleInputPassword4" name="contact_no" placeholder="Contact No">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword4">Aadhar_no:</label>
+            <input type="number" class="form-control" id="exampleInputPassword4" name="aadhar_no" placeholder="Aadhar_no">
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+</div>
+<!--Model 1 ends-->
+<!-- Modal 2 -->
+<div class="modal fade" id="basicExampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Edit Employee Details</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form class="forms-sample" action="/administrator/employee1add/" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName1">ID</label>
+            <input type="number" class="form-control" id="exampleInputName1" name="id" value="{{request.p.employeeid}}" placeholder="id">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputName1">FName</label>
+              <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="FirstName">
+            </div>
+              <div class="form-group">
+                <label for="exampleInputName1">Date of Birth</label>
+                <input type="date" class="form-control" id="exampleInputName3" name="dob" placeholder="date of Birth">
+              </div>
+              <div class="col-md-14">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Gender</label>
+                  <div class="col-sm-12">
+                    <div class="form-radio">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="membershipRadios1" value="" checked>Male
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-radio">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="membershipRadios2" value="option2"> Female
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Employee Type</label>
+            <select class="form-control" name="job_assigned">
+              <option hidden selected></option>
+              <option>Receptness</option>
+              <option>canteen Employee</option>
+              <option>Mess Employee</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Registration date</label>
+            <input type="date" class="form-control" id="exampleInputName3" name="join_date" placeholder="Registration date">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword4">Salary</label>
+              <input type="number" class="form-control" id="exampleInputPassword4" name="salary" placeholder="Salary">
+            </div>
+          <div class="form-group">
+            <label for="exampleInputPassword4">Contact No:</label>
+            <input type="number" class="form-control" id="exampleInputPassword4" name="contact_no" placeholder="Contact No">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword4">Aadhar_no:</label>
+              <input type="number" class="form-control" id="exampleInputPassword4" name="aadhar_no" placeholder="Aadhar_no">
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+    </div>
+    
+  </div>
+</div>
+</div>
+{% endblock %}

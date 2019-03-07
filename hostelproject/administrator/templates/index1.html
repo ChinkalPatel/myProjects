@@ -1,0 +1,86 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+{% block content %}
+	{% if form.errors %}
+		<p class="error"> Invalid Student info </p>
+  {% endif %}
+  
+          <div class="col-md-14 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="tit3 t-center m-b-35 m-t-2" style="margin-left:450px;color: indianred;font-size:30px;text-decoration: underline;">Admin</h4>
+                <p class="card-description" style="margin-left:430px;color:lightsalmon;font-size:20px;">
+                  Profile Details
+                </p>
+                <form class="forms-sample" enctype="multipart/form-data" action="/administrator/updateadmin/" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputName1">First Name</label>
+                    <input type="text" class="form-control" id="exampleInputName1" name="fname" value="{{p.fname}}" placeholder="FirstName">
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputName1">Middle Name</label>
+                      <input type="text" class="form-control" id="exampleInputName2" name="mname" value="{{p.mname}}" placeholder="MiddleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Last Name</label>
+                        <input type="text" class="form-control" id="exampleInputName3" name="lname" value="{{p.lname}}" placeholder="LastName">
+                      </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail3" name="email" value="{{p.email}}" placeholder="Email">
+                  </div>
+                  <div class="col-md-14">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-12">
+                          <div class="form-radio" >
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="gender" id="membershipRadios1" value="Male" checked>Male
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="form-radio">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="gender" id="membershipRadios2" value="female"> Female
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!--<div class="form-group">
+                    <label for="exampleInputPassword4">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                  </div>-->
+                  <div class="form-group">
+                      <label for="exampleInputEmail4">Update photo</label>
+                      <div class=" form-control wrap-inputemail size19 bo2 bo-rad-10 m-t-3 m-b-23">
+                          <input type='file' onchange="readURL(this);" name="myfile" value="{{p.Profile}}" style="background-color:lightgoldenrodyellow;" />
+                        </div>
+                    </div>
+                  <div class="form-group">
+                    <label for="exampleInputCity1">City</label>
+                    <input type="text" class="form-control" id="exampleInputCity1" name="city" value="{{p.city}}" placeholder="Location">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleTextarea1">Address</label>
+                    <textarea class="form-control" id="exampleTextarea1" name="address" value="{{p.address}}" rows="5"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-success mr-2">Update</button>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+    {% endblock %}
